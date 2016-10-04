@@ -8,6 +8,7 @@ module.exports = webpackValidator({
   entry: './main.js',
   output: {
     path: resolve('dist'),
+    publicPath: '/dist/',
     filename: './scripts/bundle.js',
     pathinfo: true,
   },
@@ -38,6 +39,8 @@ module.exports = webpackValidator({
 
   plugins: [
     new OfflinePlugin({
+      publicPath: '/dist/',
+      relativePaths: false,
       caches: {
         main: [
           'app/images/bgz.jpg',
